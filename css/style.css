@@ -149,7 +149,7 @@ a {
 .hero-section {
     position: relative;
     height: 100vh;
-    background: url("../img/1.png") no-repeat center center/cover; /* Placeholder image */
+    background: url("../img/1.webp") no-repeat center center/cover; /* Placeholder image */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -470,15 +470,15 @@ a {
 }
 
 .residential-bg {
-    background: url("../img/residencial.avif") no-repeat center center/cover;
+    background: url("../img/residencial.webp") no-repeat center center/cover;
 }
 
 .commercial-bg {
-    background: url("../img/comercial.avif") no-repeat center center/cover;
+    background: url("../img/comercial.webp") no-repeat center center/cover;
 }
 
 .new-developments-bg {
-    background: url("../img/new.avif") no-repeat center center/cover;
+    background: url("../img/new.webp") no-repeat center center/cover;
 }
 
 /* Testimonials Section */
@@ -592,7 +592,7 @@ a {
 .final-cta-section {
     position: relative;
     height: 400px;
-    background: url("../img/2.png") no-repeat center center/cover; /* Placeholder image */
+    background: url("../img/2.webp") no-repeat center center/cover; /* Placeholder image */
     display: flex;
     align-items: center;
     justify-content: center;

@@ -3,273 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBroker Realty - Properties for Sale</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>IBroker Realty - Propriedades</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/listings.css">
+    <link rel="stylesheet" href="../css/listings.css"> 
 </head>
 <body>
 
-    <main class="container-fluid listings-main-content">
-        <div class="row g-0"> <aside class="col-lg-3 sidebar p-4 animated-sidebar">
-                <h1 class="company-name mb-4">IBroker Realty</h1>
-                <div class="filter-wrapper">
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Price Range</label>
-                        <div class="d-flex align-items-center price-input-group">
-                            <input type="text" class="form-control" placeholder="$ Min Price">
-                            <span class="mx-2">-</span>
-                            <input type="text" class="form-control" placeholder="$ Max Price">
-                        </div>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Property Type</label>
-                        <div class="form-check-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="apt">
-                                <label class="form-check-label" for="apt">Apartment</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="house">
-                                <label class="form-check-label" for="house">House</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="penthouse">
-                                <label class="form-check-label" for="penthouse">Penthouse</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="condo">
-                                <label class="form-check-label" for="condo">Condo</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="studio">
-                                <label class="form-check-label" for="studio">Studio</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Bedrooms</label>
-                        <div class="form-check-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bed1">
-                                <label class="form-check-label" for="bed1">1 Bedroom</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bed2">
-                                <label class="form-check-label" for="bed2">2 Bedrooms</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bed3">
-                                <label class="form-check-label" for="bed3">3 Bedrooms</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bed4">
-                                <label class="form-check-label" for="bed4">4 Bedrooms</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bed5plus">
-                                <label class="form-check-label" for="bed5plus">5+ Bedrooms</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Bathrooms</label>
-                        <div class="form-check-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bath1">
-                                <label class="form-check-label" for="bath1">1 Bathroom</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bath2">
-                                <label class="form-check-label" for="bath2">2 Bathrooms</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="bath3plus">
-                                <label class="form-check-label" for="bath3plus">3+ Bathrooms</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Square Footage</label>
-                        <div class="d-flex align-items-center sqft-input-group">
-                            <input type="text" class="form-control" placeholder="Min sqft">
-                            <span class="mx-2">-</span>
-                            <input type="text" class="form-control" placeholder="Max sqft">
-                        </div>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Locations</label>
-                        <select class="form-select custom-select">
-                            <option selected>Select Location</option>
-                            <option value="1">São Paulo, SP</option>
-                            <option value="2">Rio de Janeiro, RJ</option>
-                            <option value="3">Miami, FL</option>
-                            <option value="4">Orlando, FL</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Amenities</label>
-                        <div class="form-check-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="pool">
-                                <label class="form-check-label" for="pool">Pool</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gym">
-                                <label class="form-check-label" for="gym">Gym</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="balcony">
-                                <label class="form-check-label" for="balcony">Balcony</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="garden">
-                                <label class="form-check-label" for="garden">Garden</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="parking">
-                                <label class="form-check-label" for="parking">Parking</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="security">
-                                <label class="form-check-label" for="security">24/7 Security</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="elevator">
-                                <label class="form-check-label" for="elevator">Elevator</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Real Estate Agency</label>
-                        <select class="form-select custom-select">
-                            <option selected>Select Agency</option>
-                            <option value="1">Premium Realty</option>
-                            <option value="2">Elite Properties</option>
-                            <option value="3">Urban Living</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group mb-4">
-                        <label class="form-label filter-label">Order By</label>
-                        <select class="form-select custom-select">
-                            <option selected>Price Low to High</option>
-                            <option value="1">Price High to Low</option>
-                            <option value="2">Newest Listings</option>
-                            <option value="3">Most Popular</option>
-                        </select>
-                    </div>
-
-                    <button class="btn btn-apply-filters w-100 py-3 rounded-pill animated-button">Apply Filters</button>
-                </div>
-            </aside>
-
-            <div class="col-lg-9 listings-content p-4">
-                <div class="d-flex justify-content-end align-items-center mb-4 results-header">
-                    <p class="properties-found mb-0 me-3">248 results found</p>
-                </div>
-
-                <div class="row g-4 property-grid">
-                    <div class="col-12">
-                        <div class="property-card d-flex flex-column flex-md-row animated-card">
-                            <div class="property-image-wrapper me-md-4 mb-3 mb-md-0">
-                                <img src="https://images-prd.bnsir.com.br/used/98733/fb9b43b054d352413da0de80a9599892_card-small.webp" alt="Property Image" class="img-fluid rounded-start">
-                                <div class="property-tag featured">Featured</div>
-                            </div>
-                            <div class="property-details flex-grow-1 p-3">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h3 class="property-price mb-1">$790,000</h3>
-                                        <h5 class="property-title mb-2">Duplex Apartment - Itaim Bibi, SP</h5>
-                                        <p class="property-info mb-0">
-                                            <span><i class="fas fa-bed"></i> 3 Beds</span> |
-                                            <span><i class="fas fa-bath"></i> 2 Baths</span> |
-                                            <span><i class="fas fa-ruler-combined"></i> 1,250 sqft</span>
-                                        </p>
-                                    </div>
-                                    <div class="heart-icon-card"><i class="far fa-heart"></i></div>
-                                </div>
-                                <p class="property-agency mt-3 mb-3">Premium Realty</p>
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-card-contact me-2">Contact</a>
-                                    <a href="https://wa.me/689-259-1038" target="_blank" class="btn btn-card-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="property-card d-flex flex-column flex-md-row animated-card">
-                            <div class="property-image-wrapper me-md-4 mb-3 mb-md-0">
-                                <img src="https://images-prd.bnsir.com.br/used/98219/97cbe45f7ec20893d5e31f1b367f99ba_card-small.webp" alt="Property Image" class="img-fluid rounded-start">
-                                <div class="property-tag featured">Featured</div>
-                            </div>
-                            <div class="property-details flex-grow-1 p-3">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h3 class="property-price mb-1">$1,250,000</h3>
-                                        <h5 class="property-title mb-2">Penthouse - Moema, SP</h5>
-                                        <p class="property-info mb-0">
-                                            <span><i class="fas fa-bed"></i> 4 Beds</span> |
-                                            <span><i class="fas fa-bath"></i> 3 Baths</span> |
-                                            <span><i class="fas fa-ruler-combined"></i> 2,100 sqft</span>
-                                        </p>
-                                    </div>
-                                    <div class="heart-icon-card"><i class="far fa-heart"></i></div>
-                                </div>
-                                <p class="property-agency mt-3 mb-3">Elite Properties</p>
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-card-contact me-2">Contact</a>
-                                    <a href="https://wa.me/689-259-1038" target="_blank" class="btn btn-card-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="property-card d-flex flex-column flex-md-row animated-card">
-                            <div class="property-image-wrapper me-md-4 mb-3 mb-md-0">
-                                <img src="https://images-prd.bnsir.com.br/used/98207/5733ecd2f58ec2874ecfe2f7a466e395_card-small.webp" alt="Property Image" class="img-fluid rounded-start">
-                                <div class="property-tag new-listing">New Listing</div>
-                            </div>
-                            <div class="property-details flex-grow-1 p-3">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h3 class="property-price mb-1">$650,000</h3>
-                                        <h5 class="property-title mb-2">Modern Condo - Vila Mariana, SP</h5>
-                                        <p class="property-info mb-0">
-                                            <span><i class="fas fa-bed"></i> 2 Beds</span> |
-                                            <span><i class="fas fa-bath"></i> 2 Baths</span> |
-                                            <span><i class="fas fa-ruler-combined"></i> 880 sqft</span>
-                                        </p>
-                                    </div>
-                                    <div class="heart-icon-card"><i class="far fa-heart"></i></div>
-                                </div>
-                                <p class="property-agency mt-3 mb-3">Urban Living</p>
-                                <div class="d-flex justify-content-end">
-                                    <a href="#" class="btn btn-card-contact me-2">Contact</a>
-                                    <a href="https://wa.me/689-259-1038" target="_blank" class="btn btn-card-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 text-center mt-4">
-                        <button class="btn btn-load-more btn-lg px-5 py-3 rounded-pill animated-button">Load More Properties</button>
-                    </div>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top animated-navbar">
+            <div class="container">
+                <a class="navbar-brand animated-brand" href="../index.html">IBroker Realty</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link animated-link active" aria-current="page" href="#">Listings</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="hero-section text-center d-flex align-items-center justify-content-center">
+            <div class="container">
+                <h2 class="hero-title animated-text">Descubra Seu Próximo Lar</h2>
+                <p class="hero-subtitle animated-text">As melhores propriedades ao seu alcance.</p>
+                <a href="#mls-listings" class="btn btn-hero animated-button scroll-down">Ver Propriedades <i class="fas fa-chevron-down ms-2"></i></a>
+            </div>
+        </section>
+
+        <section id="mls-listings" class="mls-section container py-5">
+            <h2 class="text-center section-title animated-heading">Explore Nossas Listagens</h2>
+            <div class="mls-api-container animated-content">
+                <iframe src="https://stellar.mlsmatrix.com/Matrix/public/IDX.aspx?idx=c2d96fad" frameborder="0"></iframe>
+            </div>
+        </section>
     </main>
 
+    <footer class="main-footer text-center py-4 animated-footer">
+        <div class="container">
+            <p>&copy; 2025 IBroker Realty. Todos os direitos reservados.</br>Developed By Zinkra</p>
+            <div class="social-icons mt-3">
+                <a href="https://www.facebook.com/people/Ibroker-Realty/61568944467504/#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/ibrokergrouprealestate/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Smooth scrolling para o botão "Ver Propriedades"
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Script para adicionar classe 'scrolled' à navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) { /* Adiciona classe se rolou mais de 50px */
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        /* Script para animar elementos ao entrar na viewport (opcional, pode ser mais complexo com JS) */
+        /* Este é apenas um exemplo básico, para animações mais complexas com scroll,
+           bibliotecas como ScrollReveal.js ou Intersection Observer API seriam melhores */
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animated-heading, .animated-content');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) { /* Se 80% do elemento estiver visível */
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll); /* Anima no carregamento se já estiver visível */
+    </script>
 </body>
 </html>

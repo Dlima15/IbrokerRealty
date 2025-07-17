@@ -1,449 +1,342 @@
-/* Variables (Ensuring consistency with the main site) */
+/* Variáveis CSS */
 :root {
-    --primary-dark: #212529; /* Main dark color, used for text, buttons */
-    --secondary-dark: #343a40; /* Slightly lighter dark for sub-headings, accents */
-    --accent-gold: #FFD700; /* Gold for highlights, hover effects */
-    --accent-orange: #FFA500; /* Orange for CTAs, active states */
-    --light-gray: #f8f9fa; /* Light background for the overall page */
-    --white: #ffffff; /* White for cards, text on dark backgrounds */
-    --text-color: #495057; /* Standard body text color */
-    --border-radius: 0.75rem; /* Standard rounded corners */
-    --transition-speed: 0.3s; /* Smooth transitions */
+    --primary-dark: #212529; /* Preto Quase Total */
+    --secondary-dark: #343a40; /* Cinza Escuro */
+    --accent-gold: #FFD700; /* Dourado */
+    --accent-orange: #FF8C00; /* Laranja Vívido */
+    --text-color: #495057; /* Texto Geral Cinza */
+    --light-gray: #f8f9fa; /* Fundo Leve */
+    --white: #ffffff; /* Branco Puro */
 
-    /* Fonts */
-    --font-poppins: 'Poppins', sans-serif; /* For general text */
-    --font-lato: 'Lato', sans-serif; /* For paragraph text, form labels */
-    --font-montserrat: 'Montserrat', sans-serif; /* For headings, brand names */
+    /* Fontes */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-lato: 'Lato', sans-serif;
+
+    /* Tamanhos de Fontes (Exemplos) */
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+
+    /* Espaçamentos Comuns */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+
+    /* Bordas e Sombras */
+    --border-radius: 0.75rem;
+    --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --box-shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    /* Transições */
+    --transition-speed: 0.3s;
+    --transition-timing: ease-in-out;
 }
 
-/* Base Styles */
+/* Reset Básico e Estilos Globais */
 body {
     font-family: var(--font-poppins);
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-gray); /* Overall page background */
+    background-color: var(--light-gray);
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    display: flex; /* For flexbox footer later if needed, or simply for main content layout */
-    flex-direction: column;
+    padding: 0;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada no body */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure consistent heading and text styles */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-montserrat);
     color: var(--primary-dark);
     font-weight: 700;
-    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 p {
-    font-family: var(--font-lato);
-    color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
-    transition: color var(--transition-speed) ease-in-out;
+    color: var(--primary-dark);
+    transition: color var(--transition-speed) var(--transition-timing);
 }
 
-/* Main Content Wrapper */
-.listings-main-content {
-    flex-grow: 1; /* Allow main content to take available space */
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+a:hover {
+    color: var(--accent-orange);
 }
 
-/* Filter Sidebar */
-.sidebar {
-    background-color: var(--white);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
-    border-right: 1px solid rgba(0, 0, 0, 0.05); /* Separator line */
-    min-height: 100vh; /* Ensure sidebar extends full height */
-    padding-top: 3rem !important; /* Top padding for filters */
-    padding-bottom: 3rem !important; /* Bottom padding for filters */
-    position: sticky; /* Keep sidebar in view */
-    top: 0;
-    overflow-y: auto; /* Allow scrolling if filters exceed height */
-    z-index: 1000;
-    animation: slideInLeft 0.7s ease-out forwards; /* Initial animation */
+/* ------------------------------------- */
+/* HEADER                    */
+/* ------------------------------------- */
+.main-header {
+    background-color: transparent; /* A barra de navegação flutuará sobre o hero */
+    position: absolute;
+    width: 100%;
+    z-index: 1050; /* Garante que fique acima de outros elementos */
 }
 
-.company-name {
+.navbar {
+    background-color: transparent !important; /* Começa transparente */
+    padding: 1.2rem 0;
+    transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+/* Efeito de Navbar ao rolar */
+.navbar.scrolled {
+    background-color: var(--primary-dark) !important; /* Fundo escuro ao rolar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
     font-family: var(--font-montserrat);
     font-weight: 800;
-    font-size: 2.2rem;
-    color: var(--primary-dark);
+    font-size: 1.8rem;
+    color: var(--white) !important;
     letter-spacing: 0.5px;
-    margin-bottom: 3rem; /* Space below company name */
-    position: relative;
-    padding-bottom: 1rem;
+    transition: color var(--transition-speed) var(--transition-timing);
 }
 
-.company-name::after {
+.navbar-brand:hover {
+    color: var(--accent-gold) !important;
+    transform: scale(1.05);
+}
+
+.nav-link {
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    color: var(--white) !important;
+    font-size: 1.05rem;
+    padding: 0.5rem 1.2rem !important;
+    position: relative;
+    transition: color var(--transition-speed) var(--transition-timing);
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--accent-gold) !important;
+}
+
+/* Efeito de underline animado nos links da navbar */
+.nav-link::after {
     content: '';
     position: absolute;
-    left: 0;
     bottom: 0;
-    width: 60px; /* Underline effect */
-    height: 4px;
+    left: 50%;
+    width: 0;
+    height: 3px;
     background-color: var(--accent-gold);
-    border-radius: 2px;
+    transition: width var(--transition-speed) var(--transition-timing), left var(--transition-speed) var(--transition-timing);
 }
 
-.filter-group {
-    padding-bottom: 1.8rem;
-    border-bottom: 1px solid rgba(0,0,0,0.08); /* Divider for filter groups */
-    margin-bottom: 1.8rem !important;
-    transition: all 0.3s ease;
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+    left: 0;
 }
 
-.filter-group:last-of-type {
-    border-bottom: none;
-    margin-bottom: 0 !important;
-    padding-bottom: 0;
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-.filter-label {
-    font-weight: 600;
-    color: var(--secondary-dark);
-    font-size: 1.05rem;
-    margin-bottom: 1rem; /* More space for labels */
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* Customizing Form Controls (Input, Select) */
-.form-control, .form-select {
-    border-radius: 0.5rem;
-    padding: 0.8rem 1rem;
-    border: 1px solid #dee2e6; /* Lighter border */
-    font-size: 0.95rem;
-    color: var(--text-color);
-    background-color: var(--light-gray); /* Slight background for inputs */
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-}
-
-.form-control::placeholder {
-    color: #adb5bd;
-    opacity: 1; /* Firefox fix */
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: var(--accent-orange);
-    box-shadow: 0 0 0 0.25rem rgba(var(--accent-orange), 0.25);
-    background-color: var(--white);
-    outline: none;
-}
-
-/* Customizing Checkboxes */
-.form-check-group .form-check {
-    margin-bottom: 0.6rem; /* Spacing between checkboxes */
-}
-
-.form-check-input {
-    width: 1.25em; /* Larger checkbox */
-    height: 1.25em;
-    border-radius: 0.35rem; /* Slightly more rounded */
-    border: 2px solid #ced4da; /* Thicker border */
-    transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
-    cursor: pointer;
-}
-
-.form-check-input:checked {
-    background-color: var(--accent-orange);
-    border-color: var(--accent-orange);
-    box-shadow: 0 0 0 0.2rem rgba(var(--accent-orange), 0.25); /* Subtle glow */
-}
-
-.form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(var(--accent-orange), 0.25);
-}
-
-.form-check-label {
-    font-size: 0.95rem;
-    margin-left: 0.6rem; /* Space between checkbox and label */
-    color: var(--text-color);
-    cursor: pointer;
-    line-height: 1.25em; /* Align text with checkbox */
-}
-
-/* Apply Filters Button */
-.btn-apply-filters {
-    background-color: var(--primary-dark);
-    border-color: var(--primary-dark);
+/* ------------------------------------- */
+/* HERO SECTION             */
+/* ------------------------------------- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/2.webp') no-repeat center center/cover;
     color: var(--white);
-    font-weight: 600;
-    transition: all var(--transition-speed) ease-in-out;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    min-height: 85vh; /* Quase tela cheia para a seção hero */
+    position: relative;
+    padding-top: 100px; /* Espaço para a navbar fixa */
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    letter-spacing: -1px;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.hero-subtitle {
+    font-size: 1.7rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.btn-hero {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    transition: all var(--transition-speed) var(--transition-timing);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.6s;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    font-size: 1.05rem;
-    letter-spacing: 0.5px;
-    padding: 0.8rem 1.5rem;
 }
 
-.btn-apply-filters::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(var(--white), 0.1);
-    transform: skewX(-20deg);
-    transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother slide */
-    z-index: -1;
+.btn-hero i {
+    transition: transform var(--transition-speed) var(--transition-timing);
 }
 
-.btn-apply-filters:hover::before {
-    left: 100%;
+.btn-hero:hover {
+    background-color: var(--accent-orange);
+    color: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.btn-apply-filters:hover {
-    background-color: var(--accent-gold);
-    border-color: var(--accent-gold);
-    color: var(--primary-dark);
-    transform: translateY(-3px); /* Lift effect */
-    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+.btn-hero:hover i {
+    transform: translateY(3px);
 }
 
-/* Animated Button Pulse (for load more, apply filters) */
-.animated-button {
+/* Animação para o botão de hero (pulse) */
+.btn-hero.animated-button {
     animation: pulse 2s infinite ease-in-out;
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.03); }
     100% { transform: scale(1); }
 }
 
-
-/* Property Listings Content */
-.listings-content {
-    background-color: var(--light-gray); /* Match body background for continuity */
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+/* Animações genéricas para texto e elementos */
+.animated-text {
+    opacity: 0;
 }
 
-.results-header {
-    margin-bottom: 2.5rem !important;
-    animation: fadeIn 0.8s ease-out forwards;
+.animated-heading {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.properties-found {
-    font-size: 1.1rem;
-    color: var(--secondary-dark);
-    font-weight: 500;
-    letter-spacing: 0.5px;
+.animated-content {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.property-grid {
-    animation: fadeIn 1s ease-out forwards; /* Fade in the whole grid */
-}
 
-.property-card {
+/* ------------------------------------- */
+/* MLS SECTION              */
+/* ------------------------------------- */
+.mls-section {
     background-color: var(--white);
-    border: none; /* Remove default Bootstrap border */
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Deeper shadow */
-    transition: transform var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
-    display: flex; /* Ensure flex behavior */
-    flex-direction: column; /* Default for mobile */
-    animation: slideInUp 0.7s ease-out forwards; /* Individual card animation */
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
 }
 
-.property-card:hover {
-    transform: translateY(-12px) scale(1.01); /* More pronounced lift and scale */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25); /* Even deeper shadow on hover */
-}
-
-.property-image-wrapper {
-    position: relative;
-    width: 100%; /* Default to full width for mobile */
-    height: 220px; /* Fixed height for consistent images */
-    overflow: hidden;
-    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Rounded top corners */
-}
-
-.property-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the area */
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother zoom */
-}
-
-.property-card:hover .property-image-wrapper img {
-    transform: scale(1.1); /* Zoom in effect */
-}
-
-.property-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 0.4rem 1rem;
-    border-radius: 0.4rem;
-    font-size: 0.85rem;
+.section-title {
+    font-size: 2.8rem;
     font-weight: 700;
-    color: var(--white);
-    z-index: 10;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.3); /* Stronger shadow for tags */
-    transition: transform 0.2s ease;
-}
-
-.property-card:hover .property-tag {
-    transform: scale(1.05); /* Slight pop on tag */
-}
-
-.property-tag.featured {
-    background: linear-gradient(to right, var(--accent-orange), #ff8c00); /* Gradient for featured */
-}
-
-.property-tag.new-listing {
-    background: linear-gradient(to right, #28a745, #218838); /* Gradient for new listing */
-}
-
-.property-details {
-    padding: 1.5rem; /* Inner padding for details */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1; /* Allow details to fill space */
-}
-
-.property-price {
-    font-size: 2.3rem; /* Larger price */
-    font-weight: 800;
     color: var(--primary-dark);
-    margin-bottom: 0.2rem; /* Less space below price */
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
     letter-spacing: -0.5px;
 }
 
-.property-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--secondary-dark);
-    margin-bottom: 0.8rem;
-    line-height: 1.3;
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 5px;
+    background-color: var(--accent-gold);
+    border-radius: 3px;
 }
 
-.property-info {
-    font-size: 0.95rem;
-    color: var(--text-color);
-    opacity: 0.9;
-    margin-bottom: 1rem;
+/* Contêiner do Iframe Responsivo - AJUSTADO AQUI */
+.mls-api-container {
+    position: relative;
+    width: 100%;
+    height: 900px; /* Altura fixa generosa para o iframe */
+    /* *** MUDANÇAS AQUI *** */
+    overflow-x: auto; /* Permite rolagem horizontal APENAS se o conteúdo for maior */
+    overflow-y: hidden; /* Mantém a rolagem vertical dentro do iframe */
+    /* ********************* */
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-medium);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
-.property-info span {
-    margin-right: 1.2rem; /* More spacing for details */
-    display: inline-block; /* Ensure spacing applies */
+.mls-api-container iframe {
+    width: 100%;
+    height: 100%; /* O iframe preenche a altura do seu contêiner */
+    border: none;
+    display: block;
+    /* *** MUDANÇA AQUI *** */
+    min-width: 1000px; /* **AJUSTE ESTE VALOR:** Garante uma largura mínima para o conteúdo MLS */
+    /* ******************** */
 }
 
-.property-info i {
-    color: var(--accent-gold);
-    margin-right: 0.4rem;
-    font-size: 1.1em; /* Slightly larger icons */
-}
-
-.property-agency {
-    font-size: 0.9rem;
-    color: #6c757d;
-    font-style: italic;
-    margin-bottom: 1.5rem; /* More space before buttons */
-    text-align: right; /* Agency name to the right */
-}
-
-.heart-icon-card {
-    font-size: 1.6rem;
-    color: #ced4da;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.heart-icon-card:hover {
-    color: #dc3545; /* Red on hover */
-    transform: scale(1.1);
-}
-
-/* Card Buttons */
-.btn-card-contact, .btn-card-whatsapp {
-    padding: 0.7rem 1.8rem; /* Larger padding for buttons */
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    letter-spacing: 0.3px;
-}
-
-.btn-card-contact {
+/* ------------------------------------- */
+/* FOOTER                   */
+/* ------------------------------------- */
+.main-footer {
     background-color: var(--primary-dark);
     color: var(--white);
-    border: 1px solid var(--primary-dark);
+    padding: 3rem 0;
+    font-family: var(--font-poppins);
+    animation: fadeIn 1s ease-out forwards; /* Animação simples no carregamento */
+    animation-delay: 1s;
 }
 
-.btn-card-contact:hover {
-    background-color: var(--accent-gold);
-    border-color: var(--accent-gold);
-    color: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+.main-footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 }
 
-.btn-card-whatsapp {
-    background-color: #25d366;
+.social-icons a {
     color: var(--white);
-    border: 1px solid #25d366;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color var(--transition-speed) var(--transition-timing), transform var(--transition-speed) var(--transition-timing);
 }
 
-.btn-card-whatsapp:hover {
-    background-color: #1ea951; /* Darker green */
-    border-color: #1ea951;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+.social-icons a:hover {
+    color: var(--accent-gold);
+    transform: translateY(-5px) scale(1.1);
 }
 
-.btn-card-whatsapp i {
-    margin-right: 0.5rem;
-}
 
-/* Load More Button */
-.btn-load-more {
-    margin-top: 3rem; /* More space above load more */
-    background-color: var(--secondary-dark); /* Different dark tone for variety */
-    border-color: var(--secondary-dark);
-    color: var(--white);
-    font-weight: 600;
-    transition: all var(--transition-speed) ease-in-out;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-}
-
-.btn-load-more:hover {
-    background-color: var(--accent-gold);
-    border-color: var(--accent-gold);
-    color: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-}
-
-/* Global Animations (Re-used and enhanced) */
+/* ------------------------------------- */
+/* ANIMAÇÕES GERAIS          */
+/* ------------------------------------- */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideInUp {
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -454,123 +347,70 @@ a {
     }
 }
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-80px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
-
-/* Responsive Adjustments */
-@media (min-width: 768px) {
-    .property-card {
-        flex-direction: row; /* Horizontal layout for md and up */
-        height: 220px; /* Fixed height for consistency */
-    }
-    .property-image-wrapper {
-        min-width: 280px; /* Wider image on desktop */
-        max-width: 280px;
-        border-radius: var(--border-radius) 0 0 var(--border-radius); /* Rounded left corners */
-    }
-}
-
+/* ------------------------------------- */
+/* RESPONSIVIDADE              */
+/* ------------------------------------- */
 @media (max-width: 991.98px) {
-    .sidebar {
-        min-height: auto; /* Allow sidebar to shrink on mobile */
-        border-right: none;
-        box-shadow: none; /* Remove shadow on smaller screens if it looks off */
-        padding-bottom: 2rem !important; /* Adjust padding */
-        position: relative; /* Remove sticky for better mobile flow */
-        width: 100%;
-        margin-bottom: 2rem; /* Space between sidebar and listings */
+    .navbar-collapse {
+        background-color: var(--primary-dark); /* Fundo da navbar colapsada */
+        margin-top: 10px;
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-    .company-name {
-        text-align: center;
+    .navbar-nav {
+        align-items: center; /* Centraliza itens no mobile */
+    }
+    .nav-link {
+        padding: 0.8rem 1rem !important;
+        margin: 0.3rem 0;
+    }
+    .nav-link::after {
+        display: none; /* Remove underline animado no mobile */
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    .btn-hero {
+        padding: 0.8rem 2rem;
+        font-size: 1.05rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
         margin-bottom: 2rem;
     }
-    .company-name::after {
-        left: 50%;
-        transform: translateX(-50%);
+    .mls-api-container {
+        height: 700px; /* Ajuste a altura em telas menores */
+        overflow-x: auto; /* Manter rolagem horizontal também para tablets se necessário */
     }
-    .filter-wrapper {
-        padding: 0 1rem; /* Padding for filter content */
-    }
-    .listings-content {
-        padding-top: 0 !important; /* No top padding if sidebar is above */
-    }
-    .properties-found {
-        text-align: center !important;
-        width: 100%;
-    }
-    .property-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .property-image-wrapper {
-        min-width: unset;
-        max-width: 100%;
-        height: 200px;
-        margin-right: 0 !important;
-        margin-bottom: 1.5rem !important;
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-    }
-    .property-details {
-        padding: 1rem;
-        align-items: center; /* Center content horizontally */
-    }
-    .property-details > div:first-child {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .property-agency {
-        text-align: center; /* Center agency name */
-    }
-    .property-details .d-flex.justify-content-end {
-        justify-content: center !important; /* Center buttons */
-        width: 100%;
+    .mls-api-container iframe {
+        min-width: 768px; /* Ajuste min-width para telas menores, se o conteúdo MLS se adaptar */
     }
 }
 
-@media (max-width: 575.98px) {
-    .sidebar {
-        padding: 1.5rem;
+@media (max-width: 767.98px) {
+    .hero-title {
+        font-size: 2.2rem;
     }
-    .company-name {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-    .filter-label {
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-    }
-    .form-control, .form-select, .form-check-label {
-        font-size: 0.9rem;
-    }
-    .btn-apply-filters, .btn-load-more {
-        font-size: 0.95rem;
-        padding: 0.6rem 1.2rem;
-    }
-    .property-price {
-        font-size: 1.8rem;
-    }
-    .property-title {
+    .hero-subtitle {
         font-size: 1.2rem;
     }
-    .property-info span {
-        margin-right: 0.5rem;
+    .btn-hero {
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
     }
-    .btn-card-contact, .btn-card-whatsapp {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
+    .section-title {
+        font-size: 1.8rem;
     }
-    .property-image-wrapper {
-        height: 180px;
+    .mls-api-container {
+        height: 600px; /* Altura ainda menor para mobile */
+        overflow-x: auto; /* Manter rolagem horizontal também para mobile se necessário */
+    }
+    .mls-api-container iframe {
+        min-width: 500px; /* Ajuste min-width para telas bem pequenas, ou remova se mobile se ajusta bem */
     }
 }
